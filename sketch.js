@@ -4,14 +4,12 @@ const sliderLabel = document.getElementById('sliderValue');
 const reset = document.getElementById('reset');
 const staticBtn = document.getElementById('static');
 const rainbowBtn = document.getElementById('rainbow');
-const shaderBtn = document.getElementById('shader');
 const eraserBtn = document.getElementById('eraser');
 const picker = document.getElementById('picker');
 
 let static = true;
 let random = false;
 let eraser = false;
-let shader = false;
 let brush = false;
 
 let color = '#2aa198'
