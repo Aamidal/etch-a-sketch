@@ -17,7 +17,8 @@ function sizeGrid(size) {
     for (i=0; i < size**2; i++){
         const pixel = document.createElement('div')
         pixel.className = 'pixel';
-        pixel.addEventListener('mouseover', changeColor);
+        pixel.addEventListener('mouseover', changeColor)
+        pixel.addEventListener('touchmove', changeColor);
         grid.appendChild(pixel);
     }
 }
