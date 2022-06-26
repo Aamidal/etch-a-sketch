@@ -53,6 +53,10 @@ input {
     outline: none;
 }
 
+#brush {
+    cursor: default;
+}
+
 #picker {
     -webkit-appearance: none;
     border-radius: 50%;
@@ -84,6 +88,7 @@ input {
 
 /* MAIN */
 
+
 .main {
     display: flex;
     align-items: center;
@@ -100,6 +105,10 @@ input {
     justify-content: center;
     gap: 30px;
     width: 200px;
+}
+
+#instructions {
+    padding-left: 25px;
 }
 
 .picked {
