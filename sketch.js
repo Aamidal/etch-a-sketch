@@ -63,8 +63,8 @@ function setStatic () {
 
 function setRandom () {
     eraserBtn.className = '';
-    rainbowBtn.className = 'picked'
-    staticBtn.className =''
+    rainbowBtn.className = 'picked';
+    staticBtn.className ='';
     static = false;
     random = true;
     eraser = false;
@@ -72,8 +72,8 @@ function setRandom () {
 
 function setEraser () {
     eraserBtn.className = 'picked';
-    rainbowBtn.className = ''
-    staticBtn.className =''
+    rainbowBtn.className = '';
+    staticBtn.className ='';
     eraser = true;
     random = false;
     static = false;
