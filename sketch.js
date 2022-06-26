@@ -2,11 +2,16 @@ const grid = document.getElementById('grid')
 const slider = document.getElementById('slider')
 const sliderLabel = document.getElementById('sliderValue');
 const reset = document.getElementById('reset');
-const static = document.getElementById('static');
-const rainbow = document.getElementById('rainbow');
-const shader = document.getElementById('shader');
-const eraser = document.getElementById('eraser');
+const staticBtn = document.getElementById('static');
+const rainbowBtn = document.getElementById('rainbow');
+const shaderBtn = document.getElementById('shader');
+const eraserBtn = document.getElementById('eraser');
 const picker = document.getElementById('picker');
+
+let static = true;
+let random = false;
+let eraser = false;
+let shader = false;
 
 let color = '#2aa198'
 sliderLabel.innerHTML = `Grid Size: ${slider.value} x ${slider.value}`
@@ -25,15 +30,13 @@ function sizeGrid(size) {
 
 function changeColor(e) {
     let pix = e.target;
-    pix.style.backgroundColor= color ;
-}
-    
-function resetGrid() {
-   grid.innerHTML= ""
+    if (random) pix.style.backgroundColor = randomColor();
+    else if (eraser) pix.style.backgroundColor = '#fdf6e3'
+    else pix.style.backgroundColor = color;
 }
 
 function updateSize() {
-    resetGrid();
+    grid.innerHTML= "";
     sliderLabel.textContent = `Grid Size: ${slider.value} x ${slider.value}`;
     sizeGrid(slider.value);
 }
@@ -41,6 +44,31 @@ function updateSize() {
 function updateColor(e) {
     color = e.target.value;
     picker.style.backgroundColor = color;
+}
+
+function randomColor() {
+    solarized = ['#859900', '#2aa198', '#268bd2', '#6c71c4', '#d33682', 
+            '#dc322f', '#cb4b16', '#b58900']
+    console.log(color)
+    return color = solarized[Math.floor(Math.random()*solarized.length)]
+}
+
+function setStatic () {
+    static = true;
+    random = false;
+    eraser = false;
+}
+
+function setRandom () {
+    static = false;
+    random = true;
+    eraser = false;
+}
+
+function setEraser () {
+    eraser = true;
+    random = false;
+    static = false;
 }
 
 function startUp() {
@@ -51,7 +79,9 @@ function startUp() {
     picker.select();
     slider.addEventListener('input', updateSize);
     reset.addEventListener('click', updateSize);
-    eraser.addEventListener('click', ()=> color= '#fdf6e3')
+    staticBtn.addEventListener('click', setStatic)
+    eraserBtn.addEventListener('click', setEraser)
+    rainbowBtn.addEventListener('click', setRandom)
 
 }
 
