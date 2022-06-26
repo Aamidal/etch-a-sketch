@@ -47,6 +47,8 @@ function startUp() {
     picker.addEventListener("input", updateColor, false);
     picker.select();
     slider.addEventListener('input', updateSize);
+    reset.addEventListener('click', updateSize);
+    eraser.addEventListener('click', ()=> color= '#fdf6e3')
 
 }
 
