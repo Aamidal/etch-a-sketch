@@ -39,11 +39,13 @@ function updateSize() {
 
 function updateColor(e) {
     color = e.target.value;
+    picker.style.backgroundColor = color;
 }
 
 function startUp() {
     sizeGrid(slider.value);
     picker.value = color;
+    picker.style.backgroundColor = color;
     picker.addEventListener("input", updateColor, false);
     picker.select();
     slider.addEventListener('input', updateSize);

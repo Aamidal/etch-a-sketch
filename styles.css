@@ -53,6 +53,24 @@ input {
     outline: none;
 }
 
+#picker {
+    -webkit-appearance: none;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+#picker::-webkit-color-swatch-wrapper{
+    padding:0;
+}
+#picker::-webkit-color-swatch {
+    border:non;
+    border-radius:50%;
+}
+
+#slider {
+    -webkit-appearance:none;
+}
+
 /* HEADER */
 
 .header {
