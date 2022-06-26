@@ -6,6 +6,7 @@ const staticBtn = document.getElementById('static');
 const rainbowBtn = document.getElementById('rainbow');
 const eraserBtn = document.getElementById('eraser');
 const picker = document.getElementById('picker');
+const brushBtn = document.getElementById('brush');
 
 let static = true;
 let random = false;
@@ -82,6 +83,8 @@ function toggleBrush () {
     let pixels = Array.from(document.getElementsByClassName('pixel'));
     if (brush) {
         brush = false;
+        brushBtn.className = '';
+        brushBtn.textContent = 'Brush: Off';
         for (pixel of pixels) {
             pixel.removeEventListener('mouseover', changeColor);
             pixel.removeEventListener('touchmove', changeColor);
@@ -89,6 +92,8 @@ function toggleBrush () {
     }
     else {
         brush = true;
+        brushBtn.className = 'picked';
+        brushBtn.textContent = 'Brush: On!';
         for (pixel of pixels) {
             pixel.addEventListener('mouseover', changeColor);
             pixel.addEventListener('touchmove', changeColor);
