@@ -43,6 +43,7 @@ function updateSize() {
 function updateColor(e) {
     color = e.target.value;
     picker.style.backgroundColor = color;
+    setStatic();
 }
 
 function randomColor() {
