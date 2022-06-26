@@ -12,6 +12,7 @@ let static = true;
 let random = false;
 let eraser = false;
 let shader = false;
+let brush = false;
 
 let color = '#2aa198'
 sliderLabel.innerHTML = `Grid Size: ${slider.value} x ${slider.value}`
@@ -22,8 +23,6 @@ function sizeGrid(size) {
     for (i=0; i < size**2; i++){
         const pixel = document.createElement('div')
         pixel.className = 'pixel';
-        pixel.addEventListener('mouseover', changeColor)
-        pixel.addEventListener('touchmove', changeColor);
         grid.appendChild(pixel);
     }
 }
@@ -32,7 +31,7 @@ function changeColor(e) {
     let pix = e.target;
     if (random) pix.style.backgroundColor = randomColor();
     else if (eraser) pix.style.backgroundColor = '#fdf6e3'
-    else pix.style.backgroundColor = color;
+    else pix.style.backgroundColor = picker.value;
 }
 
 function updateSize() {
@@ -54,24 +53,52 @@ function randomColor() {
 }
 
 function setStatic () {
+    eraserBtn.className = '';
+    rainbowBtn.className = '';
+    staticBtn.className ='picked';
     static = true;
     random = false;
     eraser = false;
 }
 
 function setRandom () {
+    eraserBtn.className = '';
+    rainbowBtn.className = 'picked'
+    staticBtn.className =''
     static = false;
     random = true;
     eraser = false;
 }
 
 function setEraser () {
+    eraserBtn.className = 'picked';
+    rainbowBtn.className = ''
+    staticBtn.className =''
     eraser = true;
     random = false;
     static = false;
 }
 
+function toggleBrush () {
+    let pixels = Array.from(document.getElementsByClassName('pixel'));
+    if (brush) {
+        brush = false;
+        for (pixel of pixels) {
+            pixel.removeEventListener('mouseover', changeColor);
+            pixel.removeEventListener('touchmove', changeColor);
+        }
+    }
+    else {
+        brush = true;
+        for (pixel of pixels) {
+            pixel.addEventListener('mouseover', changeColor);
+            pixel.addEventListener('touchmove', changeColor);
+        }
+    }
+}
+
 function startUp() {
+    setStatic();
     sizeGrid(slider.value);
     picker.value = color;
     picker.style.backgroundColor = color;
@@ -82,7 +109,7 @@ function startUp() {
     staticBtn.addEventListener('click', setStatic)
     eraserBtn.addEventListener('click', setEraser)
     rainbowBtn.addEventListener('click', setRandom)
-
+    grid.addEventListener('click', toggleBrush)
 }
 
 startUp();

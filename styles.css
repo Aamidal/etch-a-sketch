@@ -101,6 +101,10 @@ input {
     gap: 30px;
     width: 200px;
 }
+
+.picked {
+    border: 4px dashed var(--cyan);
+}
   
 .grid {
     display: grid;
