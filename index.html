@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-a-Sketch</title>
+    <title>Pixel Painter</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link 
@@ -16,15 +16,24 @@
 </head>
 <body>
     <header class="header">
-        <h1 class="title">Etch-a-sketch</h1>
-      </header>
-      <main class="main">
-        <div class="settings">
-            <div id="rangeValue">16 x 16</div>
-            <input type="range" id="range" value="16" max="64" min="1">
-        </div>
-        <div id="grid" class="grid"></div>
-      </main>
+        <h1 class="title">Pixel Painter</h1>
+    </header>
+        <main class="main">
+            <div class="settings">
+                <div id="sliderValue"></div>
+                <input type="range" id="slider" value="16" max="128" min="8" step="8">
+                <button>Start Over</button>
+            </div>
+            <div id="grid" class="grid"></div>
+            <div class="settings">
+                <input type="color">
+                <button>Static Color</button>
+                <button>Rainbow</button>
+                <button>Shading</button>
+                <button>Eraser</button>
+            </div>
+        </main>
+
     <footer class="footer">
         <p>
           Copyright ©
@@ -36,7 +45,7 @@
         <a href="https://github.com/aamidal" target="_blank">
           <i class="fab fa-github bounce"></i>
         </a>
-      </footer>
+    </footer>
     <script src="sketch.js"></script>
 </body>
 </html>

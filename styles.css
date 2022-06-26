@@ -42,8 +42,10 @@ h1 {
 
 button,
 input {
-    width: 100%;
+    width: 75%;
+    border-radius: 16px;
     border: none;
+    background-color: var(--base3);
     color: inherit;
     font-family: inherit;
     font-size: inherit;
@@ -87,10 +89,12 @@ input {
     width: 500px;
     height: 500px;
     background-color: var(--base3);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgb(0,0,0,0.15) 3px 4px 8px;
 }
   
-.grid-element {
+.pixel {
     user-select: none;
 }
   
