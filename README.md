@@ -1,5 +1,4 @@
 # Pixel Painter
-Project 4: Etch-A-Sketch for [The Odin Project: Fundamentals](https://www.theodinproject.com/lessons/foundations-etch-a-sketch)
 
 ## Controls
 
